@@ -1,0 +1,22 @@
+cmake_minimum_required (VERSION 2.6)
+project (SSD1306-INFO)
+
+set(CMAKE_CURRENT_SOURCE_DIR .)
+
+set(INCLUDE .)
+
+SET(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+set(CMAKE_INSTALL_PREFIX /usr/)
+
+set(SSD1306_SOURCE
+  ssd1306-info.cpp
+)
+
+#set(SSD1306_HEADERS
+#  ssd1306-info.h
+#)
+
+add_executable(ssd1306-info ${SSD1306_SOURCE} ${SSD1306_HEADERS})
+target_link_libraries(ssd1306-info ssd1306)
+
+install(TARGETS ssd1306-info DESTINATION bin)
