@@ -11,9 +11,9 @@
 #include <ifaddrs.h>
 #include <stdlib.h>
 
+#include <ssd1306.h>
 /*
 #include <gpio.h>
-#include <ssd1306.h>
 #include <binary.h>
 #include <font.h>
 */
