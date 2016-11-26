@@ -12,11 +12,6 @@
 #include <stdlib.h>
 
 #include <ssd1306.h>
-/*
-#include <gpio.h>
-#include <binary.h>
-#include <font.h>
-*/
 
 extern unsigned char arduino[1024];
 
@@ -386,7 +381,7 @@ int main(int argc, char **argv)
 
         /// populate buffer with some symbols
         memset(buffer, 0, 26);
-        size = snprintf((char*)buffer, 25, "! \" # % & / ( ) = ? @ $  ");
+        size = snprintf((char*)buffer, 25, "!    ( ) =  ");
         if (size < 0 || size != 25) {
             std::cerr << __func__ << ":" << __LINE__ << "snprintf failed (" << size << ")" << std::endl;
             return -1;
