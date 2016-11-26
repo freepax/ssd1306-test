@@ -12,11 +12,7 @@ set(SSD1306_SOURCE
   ssd1306-info.cpp
 )
 
-#set(SSD1306_HEADERS
-#  ssd1306-info.h
-#)
-
 add_executable(ssd1306-info ${SSD1306_SOURCE} ${SSD1306_HEADERS})
-target_link_libraries(ssd1306-info ssd1306)
+target_link_libraries(ssd1306-info libssd1306)
 
 install(TARGETS ssd1306-info DESTINATION bin)
