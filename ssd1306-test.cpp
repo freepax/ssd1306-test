@@ -372,7 +372,7 @@ int networkPage(SSD1306 *ssd1306)
 
 int main(int argc, char **argv)
 {
-    std::cout << "ex_ssd1306" << std::endl;
+    std::cout << "ssd1306-test" << std::endl;
 
     /// SSD device
     SSD1306 ssd1306((char*)FirmwareI2CDeviceses::i2c_1);
@@ -498,39 +498,8 @@ int main(int argc, char **argv)
             return -1;
         }
 
-        //Ssd1306LeftHorizontalScroll;
-        //Ssd1306RightHorizontalScroll
-        //Ssd1306VerticalAndLeftHorizontalScroll;
-        //Ssd1306VerticalAndRightHorizontalScroll;
-#if 0
-        /// horizontal scroll
-        if (ssd1306.setScroll(Ssd1306LeftHorizontalScroll, 0x05, 0x07, 0x00, 0x00) < 0) {
-            std::cerr << __func__ << ":" << __LINE__ << "horizontalScroll failed" << std::endl;
-            return 0;
-        }
 
-        usleep(5000000);
-        usleep(2000000);
-
-        if (ssd1306.runCommand(Ssd1306DeactivateScroll) < 0) {
-            std::cerr << "SSD1306::"  << __func__ << ":" << __LINE__ << " runCommand failed" << std::endl;
-            return -2;
-        }
-
-        /// clear display
-        if (ssd1306.clearDisplay() < 0) {
-            std::cerr << __func__ << ":" << __LINE__ << " clearDisplay failed" << std::endl;
-            return 0;
-        }
-
-
-        /// run byte test
-        if (writeByteTest(&ssd1306) < 0) {
-            std::cerr << __func__ << ":" << __LINE__ << " writeLineTest failed with status " << status << std::endl;
-            return 0;
-        }
-        ssd1306.clearDisplay()();
-#endif
+        usleep(3000000);
 
         /// write image (adruino) to display
         if (writeImage(&ssd1306, arduino) < 0) {
@@ -538,7 +507,7 @@ int main(int argc, char **argv)
             return 0;
         }
 
-        usleep(1000000);
+        usleep(3000000);
 
         /// clear display
         if (ssd1306.clearDisplay() < 0) {
@@ -552,7 +521,7 @@ int main(int argc, char **argv)
             return 0;
         }
 
-        usleep(2000000);
+        usleep(3000000);
 
         /// clear display
         if (ssd1306.clearDisplay() < 0) {
