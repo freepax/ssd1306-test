@@ -445,19 +445,6 @@ int main(int argc, char **argv)
             return -1;
         }
 
-        /// populate buffer with some symbols
-        memset(buffer, 0, 26);
-        size = snprintf((char*)buffer, 25, "!    ( ) =  ");
-        if (size < 0 || size != 25) {
-            std::cerr << __func__ << ":" << __LINE__ << "snprintf failed (" << size << ")" << std::endl;
-            return -1;
-        }
-
-        /// write symbols to display
-        if (ssd1306.writeLine(3, buffer) < 0) {
-            std::cerr << __func__ << ":" << __LINE__ << "writeLine failed" << std::endl;
-            return -1;
-        }
 
         /// populate buffer with first part of lower case letters
         memset(buffer, 0, 26);
@@ -515,7 +502,7 @@ int main(int argc, char **argv)
         //Ssd1306RightHorizontalScroll
         //Ssd1306VerticalAndLeftHorizontalScroll;
         //Ssd1306VerticalAndRightHorizontalScroll;
-
+#if 0
         /// horizontal scroll
         if (ssd1306.setScroll(Ssd1306LeftHorizontalScroll, 0x05, 0x07, 0x00, 0x00) < 0) {
             std::cerr << __func__ << ":" << __LINE__ << "horizontalScroll failed" << std::endl;
@@ -536,7 +523,7 @@ int main(int argc, char **argv)
             return 0;
         }
 
-#if 0
+
         /// run byte test
         if (writeByteTest(&ssd1306) < 0) {
             std::cerr << __func__ << ":" << __LINE__ << " writeLineTest failed with status " << status << std::endl;
